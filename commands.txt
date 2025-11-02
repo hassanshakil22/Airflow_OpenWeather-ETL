@@ -14,13 +14,13 @@ Install: Winscp
 Action -> security -> Modify Iam Role
 
 # connect to EC2
-ssh -i "dependency.pem" ec2-user@ec2-174-129-182-6.compute-1.amazonaws.com
+ssh -i "dependencyKey.pem" ec2-user@ec2-35-153-183-146.compute-1.amazonaws.com
 
-# Copy files to EC2
-scp -r -i "dependency.pem" docker_exp ec2-user@ec2-174-129-182-6.compute-1.amazonaws.com:/home/ec2-user/docker_exp
+  # Copy files to EC2
+scp -r -i "dependencyKey.pem" docker_exp ec2-user@ec2-35-153-183-146.compute-1.amazonaws.com
 
 # connect with port forwarding
-ssh -i "dependency.pem" ec2-54-196-203-200.compute-1.amazonaws.com -L 8080:localhost:8080 -L 5050:localhost:5050 -L 5433:localhost:5433 -L 5555:localhost:5555 
+ssh -i "dependencyKey.pem" ec2-user@ec2-35-153-183-146.compute-1.amazonaws.com -L 8080:localhost:8080 -L 5050:localhost:5050 -L 5433:localhost:5433 -L 5555:localhost:5555 
 
 - Commands to install Docker
 sudo yum update -y
@@ -54,9 +54,9 @@ Username: admin@admin.com
 Password: admin
 
 New Server : Airflow Postgres
-Host name / address : postgres
+Host name / address : postgres  
 Port : 5432
-Maintenance database : airflow
+Maintenance datab ase : airflow
 Username : airflow
 Password : airflow
 
@@ -118,7 +118,7 @@ aws sts get-session-token
 ###Login Winscp
 
 File protocol : SFTP
-Host name : <EC2 Public DNS>
+Host name : <EC2  DNS>
 Port : 22
 User name: ec2-user
 
@@ -128,4 +128,4 @@ Press Login
 
 ### Give Permission 
 
-sudo chown -R ec2-user:ec2-user /home/ec2-user/docker_exp
+sudo chown -R ec2-user:ec2-user /home/ec2-user/docker_exp/dags
