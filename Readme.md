@@ -1,3 +1,36 @@
+AI Diagram Prompt
+
+Create a simple cloud architecture diagram for a weather ETL pipeline using Apache Airflow on AWS.
+
+Architecture Overview:
+
+AWS EC2 Instance — the main compute resource.
+
+Inside EC2, run Docker with two containers:
+
+Apache Airflow (for scheduling and ETL orchestration)
+
+PostgreSQL Database (for storing transformed weather data)
+
+Airflow connects to the OpenWeatherMap API to fetch raw weather data.
+
+The data is transformed (temperature, timestamps, etc.) and loaded into PostgreSQL.
+
+Optionally, the processed data is also saved to an AWS S3 bucket.
+
+Data Flow:
+OpenWeatherMap API → Airflow (on EC2) → PostgreSQL (Docker) → S3 (optional)
+
+Design Guidelines:
+
+Use official icons/logos for all tools: AWS EC2, S3, Docker, Airflow, PostgreSQL, and OpenWeatherMap.
+
+Keep it clean, minimal, and easy to read — horizontal layout with clear arrows showing data flow.
+
+Group Airflow and PostgreSQL inside the EC2 + Docker box.
+
+Label each component clearly.
+
 # Airflow OpenWeather ETL Pipeline
 
 A **Dockerized ETL pipeline** using **Apache Airflow** that extracts weather data from the **OpenWeather API**, transforms it, and loads it into **PostgreSQL**. The project is deployed on an **AWS EC2 instance** and optionally stores historical CSV data in **S3**.
